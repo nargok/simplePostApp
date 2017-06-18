@@ -1,0 +1,23 @@
+.main-page{
+  margin-top:50px;  
+}
+
+.my-form{
+  width: 500px;
+}
+
+.header-image {
+  background-image: url(/assets/beach.jpg);
+  height: 400px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.header-content {
+  font-size: 75px;
+  padding-top: 150px;
+  color: #FFF;
+  text-shadow: 1px 1px 0px #000, 2px 2px 0px #000, 3px 3px 0px #000, 4px 4px 0px #000, 5px 5px 0px #000 ;
+}

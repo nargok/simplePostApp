@@ -1,0 +1,9 @@
+<h1>投稿一覧</h1>
+<hr>
+<% @posts.each do |post| %>
+  <p><%= link_to "#{User.find(post.user_id).family_name} #{User.find(post.user_id).family_name}さんの投稿", "/users/#{post.user_id}" %></p>
+  <h3><%= link_to("#{post.id}", "/posts/#{post.id}") %></h3>
+  <p><%= post.content %></p>
+  <hr>
+<% end %>
+<%= link_to("新しく投稿する", "/posts/new", class: "btn btn-primary") %>

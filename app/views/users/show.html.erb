@@ -1,0 +1,10 @@
+<h1>ユーザー情報</h1>
+<hr>
+<p>名前：<%= @user.family_name %><%= @user.first_name %>さん</p>
+<p>自己紹介：<%= @user.self_instruction %></p>
+<hr>
+<p><%= link_to "トップに戻る", "/posts", class: "btn btn-info" %></p>
+<p><%= link_to "ユーザ一覧に戻る", "/users", class: "btn btn-primary" %></p>
+<% if @user.id == current_user.id %>
+  <p><%= link_to "ユーザ情報を編集する", "/users/#{@user.id}/edit", class: "btn btn-success" %></p>
+<% end %>

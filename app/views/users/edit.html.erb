@@ -1,0 +1,14 @@
+<h1>ユーザー情報を編集する</h1>
+<hr>
+<%= form_for @user do |f| %>
+  <p>名字</p>
+  <%= f.text_field :family_name, class: "form-control my-form" %>
+  <p>名前</p>
+  <%= f.text_field :first_name, class: "form-control my-form" %>
+  <p>自己紹介</p> 
+  <%= f.text_area :self_instruction, class: "form-control my-form" %>
+  <hr>
+  <%= f.submit "登録する", class: "btn btn-primary" %>
+<% end %>  
+<hr>
+<%= link_to "ユーザー情報に戻る", "/users/#{@user.id}", class: "btn btn-info" %>

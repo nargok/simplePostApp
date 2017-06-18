@@ -1,0 +1,19 @@
+<h1>投稿</h1>
+<hr>
+<p><%= @user.family_name %><%= @user.first_name %>さん</p>
+<h4><%= @post.content %></h4>
+<small><%= @post.created_at %>:<%= @post.place %></small>
+
+<p>
+  <%= link_to("トップに戻る", "/posts", class: "btn btn-info") %>
+</p>
+<% if user_signed_in? %>
+  <% if @post.user_id == current_user.id %>
+    <p>
+      <%= link_to("投稿を編集する", "/posts/#{@post.id}/edit", class: "btn btn-success")%>
+    </p>
+    <p>
+      <%= link_to "投稿を削除する", "/posts/#{@post.id}", {method: :delete, :class => "btn btn-danger"} %>
+    </p>
+  <% end %>
+<% end %>

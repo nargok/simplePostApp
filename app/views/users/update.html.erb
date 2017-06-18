@@ -1,0 +1,8 @@
+<h1>ユーザー情報を変更しました。</h1>
+<hr>
+<p>名前：<%= @user.family_name%><%= @user.first_name%>さん</p>
+<p>自己紹介：<%= @user.self_instruction %></p>
+<hr>
+<p><%= link_to "ユーザー情報に戻る", "/users/#{@user.id}", class: "btn btn-primary"%></p>
+<p><%= link_to "ユーザー情報の編集に戻る", "/users/#{@user.id}/edit", class: "btn btn-success"%></p>
+<p><%= link_to "トップに戻る", "/posts", class: "btn btn-info" %></p>

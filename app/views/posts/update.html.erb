@@ -1,0 +1,7 @@
+<h1>投稿を変更しました。</h1>
+<hr>
+<p>名前:<%= @user.family_name %><%= @user.first_name %>さん</p>
+<p>内容:<%= @post.content %></p>
+<p>場所:<%= @post.place %></p>
+<hr>
+<%= link_to("トップに戻る", "/posts", class: "btn btn-info") %>

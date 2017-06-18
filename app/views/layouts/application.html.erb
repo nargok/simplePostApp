@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+  </head>
+
+  <body>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+          </button>
+          <a href="/posts" class="navbar-brand">myapp</a>
+        </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "ユーザー一覧", "/users" %></li>
+              <li><%= link_to "ユーザー情報", "/users/#{current_user.id}" %></li>
+              <li><%= link_to "新しく投稿する", "/posts/new" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to "登録する", "/users/sign_up" %></li>
+              <li><%= link_to "ログインする", "/users/sign_in" %></li>            
+            <% end %>
+          </ul>
+          </div>
+      </div>
+    </nav>
+    <div class="container main-page">      
+      <% if notice %>
+        <br>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <br>
+        <p class="alert alert-danger"><%= alert %></p>    
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

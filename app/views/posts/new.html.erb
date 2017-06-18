@@ -1,0 +1,17 @@
+<h1>投稿を作る</h1>
+<hr>
+<!-- エラーメッセージを出力 -->
+<% @post.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+<%= form_for @post do |f| %>
+  <p>内容</p>
+  <%= f.text_area :content, class: "form-control my-form"  %>
+    <br>
+  <p>場所</p>
+  <%= f.text_field :place, class: "form-control my-form"  %>
+  <hr>
+  <%= f.submit "登録する", class: "btn btn-primary" %>
+  <hr>
+<% end %>
+<%= link_to("トップに戻る", "/posts", class: "btn btn-info") %>
